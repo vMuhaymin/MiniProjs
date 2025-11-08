@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study Form</title>
+  <link rel="stylesheet" href="style/formStyle.css">
+</head>
+<body>
+  <nav>
+    <div class="logo">DailyMotion</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="form.html" class="active">Add</a>
+      <a href="#">Edit</a>
+    </div>
+  </nav>
+  <section class="form-container">
+    <h2>Add Study Session</h2>
+    <form class="study-form" method="POST">
+      <label for="subject">Subject:</label>
+      <input type="text" id="subject" name="subject" placeholder="Enter subject" required>
+
+      <label for="time_studied">Time of Studied (hrs):</label>
+      <input type="number" id="time_studied" name="time_studied" min="0" required>
+
+      <label for="material">Material:</label>
+      <input type="text" id="material" name="material" placeholder="Enter material" required>
+
+      <label for="start_time">Start Time:</label>
+      <input type="time" id="start_time" name="start_time" required>
+
+      <label for="finish_time">Finish Time:</label>
+      <input type="time" id="finish_time" name="finish_time" required>
+
+      <label for="day">Day:</label>
+      <select id="day" name="day" required>
+        <option value="">Select Day</option>
+        <option>Monday</option>
+        <option>Tuesday</option>
+        <option>Wednesday</option>
+        <option>Thursday</option>
+        <option>Friday</option>
+        <option>Saturday</option>
+        <option>Sunday</option>
+      </select>
+
+      <label for="date">Date:</label>
+      <input type="date" id="date" name="date" required>
+
+      <label for="notes">Note:</label>
+      <textarea id="note" name="notes" rows="3" placeholder="Write a note..."></textarea>
+
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+  </section>
+</body>
+</html>
