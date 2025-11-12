@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse
-from .form import NoteForm
-
+from .forms import NoteForm
+from .models import Note
 # Create your views here.
 def addForm_view(request):
     form = NoteForm()
@@ -9,4 +9,10 @@ def addForm_view(request):
         if form.is_valid():
             form.save()
             return HttpResponse("Success")
+
     return render(request, "addReport.html", {"form":form})
+
+
+def viewTable(request):
+    form = Note.objects.all() 
+    return render(request, "StudyReport.html", {'notes' : form})
