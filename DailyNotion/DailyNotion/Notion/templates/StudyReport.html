@@ -1,3 +1,6 @@
+{% load static %}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,14 +8,72 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DailyNotion</title>
   <link rel="stylesheet" href="style/style.css">
+  <style>
+body {
+    margin: 0;
+      font-family: Arial, sans-serif;
+}
+
+      nav {
+          display: flex;
+            align-items: center;
+              justify-content: space-between;
+                background-color: #333;
+                  padding: 10px 20px;
+      }
+
+      .logo {
+          color: white;
+            font-size: 28px;
+              font-weight: bold;
+      }
+
+      .logo::first-letter {
+          color: white;
+            font-size: 40px;
+              font-weight: bold;
+      }
+
+      .nav-links a {
+          color: white;
+            text-decoration: none;
+              margin-left: 20px;
+                font-size: 16px;
+      }
+
+      .nav-links a:hover {
+          text-decoration: underline;
+      }
+
+      /* 🧩 FIX: Wrap table in a container with side margins */
+      .table-container {
+          margin: 20px 40px 20px 20px; /* adds right margin */
+      }
+
+      table {
+          width: 100%;
+            border-collapse: collapse;
+      }
+
+      th, td {
+          border: 1px solid #a5a4a4;
+            padding: 10px;
+              text-align: center;
+      }
+
+      th {
+          background-color: #e6e6e6;
+      }
+      </style>
 </head>
 <body>
   <nav>
     <div class="logo">DailyMotion</div>
     <div class="nav-links">
-      <a href="#">Home</a>
-      <a href="#">Add</a>
-      <a href="#">Edit</a>
+      <a href="{% url 'viewTable' %}">Home</a>
+    <a href="{% url 'newReport' %}">Add</a>
+    <a href="#">View</a>
+
     </div>
   </nav>
 
@@ -32,17 +93,17 @@
 
       {% for item in notes %}
       <tr>
-        <td>{{ item.subject }}</td>
-        <td>{{ item.time_studied }}/</td>
-        <td>{{ item.material }}</td>
-        <td>{{ item.start_time }}</td>
-        <td>{{ item.finish_time }}</td>
-        <td>{{ item.day }}</td>
-        <td>{{ item.date  }}</td>
-        <td>{{ item.notes  }}</td>
+          <td>{{ item.subject }}</td>
+          <td>{{ item.time_studied }}</td>
+          <td>{{ item.material }}</td>
+          <td>{{ item.start_time }}</td>
+          <td>{{ item.finish_time }}</td>
+          <td>{{ item.day }}</td>
+          <td>{{ item.date }}</td>
+          <td>{{ item.notes }}</td>
       </tr>
-      <tr>
       {% endfor %}
+
     </table>
 
    

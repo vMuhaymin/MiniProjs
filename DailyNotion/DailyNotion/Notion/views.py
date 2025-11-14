@@ -14,5 +14,5 @@ def addForm_view(request):
 
 
 def viewTable(request):
-    form = Note.objects.all() 
+    form = Note.objects.all()
     return render(request, "StudyReport.html", {'notes' : form})
