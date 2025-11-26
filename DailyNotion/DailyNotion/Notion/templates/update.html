@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+      body{
+          margin: 0;
+          padding: 0;
+          height: 100vh;
+          display: flex;
+          justify-content: center;
+
+      }
+      .container{
+        display: flex;
+        flex-direction: column;
+
+        align-self: center;
+        background-color: rgb(245, 245, 245);
+        border:  solid 1px  rgb(201, 197, 197);
+        border-radius: 20px;
+
+        width: 500px;
+        height: 700px;
+
+        padding: 10px;
+      }
+
+      .container input {
+        position: relative;
+        border-radius: 10px;
+        border: solid 1px  rgb(201, 197, 197);
+        height: 30px;
+        width: 100%;
+        
+        margin-top: 10px;
+      }
+
+      .container textarea {
+        position: relative;
+        border-radius: 10px;
+        border: solid 1px  rgb(201, 197, 197);
+        height: 100px;
+        width: 70%;
+            
+        margin-top: 10px;
+
+
+      }
+    </style>
+  </head>
+  <body>
+
+    <a href="{% url 'viewTable' %}"> Go back </a>
+
+
+    <form class = container >
+      {% csrf_token %}
+        {{form.as_p}}   
+       <button type="submit">Save</button> <
+    </form>
+
+  
+  </body>
+</html>

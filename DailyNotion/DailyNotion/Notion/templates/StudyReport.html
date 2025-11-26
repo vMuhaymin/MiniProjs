@@ -64,6 +64,17 @@ body {
       th {
           background-color: #e6e6e6;
       }
+      button{
+           background-color: skyblue;
+           border: none;
+           border-radius: 3px;
+           width :100%;
+      }
+
+      a {
+        text-decoration:none; 
+        color: black;
+      }
       </style>
 </head>
 <body>
@@ -88,6 +99,8 @@ body {
         <th>Day</th>
         <th>Date</th>
         <th>Note</th>
+        <th>Update</th>
+
       </tr>
 
 
@@ -101,6 +114,10 @@ body {
           <td>{{ item.day }}</td>
           <td>{{ item.date }}</td>
           <td>{{ item.notes }}</td>
+          <th> <button type="submit "> <a href="{% url 'updateTable' item.id %}"> Edit </a> </button> 
+                <button type="submit "> <a href="{% url 'deleteInfo' item.id  %}"> Delete </a> </button>  
+          </th>
+
       </tr>
       {% endfor %}
 
