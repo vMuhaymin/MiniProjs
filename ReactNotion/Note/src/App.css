@@ -21,7 +21,7 @@ body{
   margin: 30px;
   padding: 10px;
 
-  border: 1px solid color-mix(in srgb, rgb(113, 94, 94) 50%, rgb(3, 3, 212) 50%);
+  border: 1px solid #4C3BCF;
   border-radius: 10px;
 }
 

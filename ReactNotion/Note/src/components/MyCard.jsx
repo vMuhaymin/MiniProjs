@@ -9,8 +9,6 @@ function MyCard(){
                 <li>Total Time</li>
                 <li> Material </li>
             </ul>
-
-        
     </div>
     </>);
 }
