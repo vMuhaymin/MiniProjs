@@ -7,7 +7,7 @@
 }
 
 body{
-  display: flex;
+
   background-color: color-mix(in srgb, rgb(44, 5, 5) 50%, rgb(4, 4, 79) 50%);
   height: 100vh;
   font-family: 'Times New Roman', Times, serif;
@@ -33,3 +33,56 @@ body{
   gap: 20px;
  list-style: none;
 }
+
+.nav{
+  display: flex;
+
+  flex-direction: row;
+
+  margin: 30px;
+  padding: 10px;
+
+  border-radius: 10px;
+  color: aliceblue;
+  border: 1px solid #4C3BCF;
+  background-color: #450473;
+
+}
+
+.logo{
+  display: flex;
+  width: 30%;
+  
+}
+
+.search{
+  display: flex;
+  width: 40%;
+  justify-content: center;
+}
+
+.search input{
+
+  width: 90%;
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+
+input:focus{
+  border:3px solid  #4C3BCF;
+  outline: none;  
+}
+
+
+.button{
+  display: flex;
+  width: 30%;
+  justify-content: left;
+}
+.button button{
+  width: 50px;
+  
+  text-align: center;
+
+}
+
