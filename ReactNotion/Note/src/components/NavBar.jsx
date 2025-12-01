@@ -3,10 +3,10 @@ function NavBar(){
     <div className="nav">
             <div className="logo"><h2>Logo </h2> </div>
              
-             <div className="search"> <input type="text" name="" id="" placeholder="Search ... " />  </div>
+             <div className="search"> <input type="text" name="" id="" placeholder="Search ... " /> <button> 🔎</button> </div>
 
              <div className="button"> </div>
-             <div className="Options"> <a href=""> ⚙️ Add Note</a> </div>
+             <div className="Options"> <button>  Add Note </button> </div>
     </div>
     </>);
 }
