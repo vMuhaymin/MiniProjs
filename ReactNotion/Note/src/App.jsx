@@ -6,27 +6,26 @@ import AddCard from './components/AddCard';
 
 function App() {
 
-  const info = [{
-    day: "Thursday",
-    course:"Fucking Leena" ,
-    totalTime: "3 hr",
-    material:"Bed then chair"
-  },
-  {
-    day: "Friday",
-    course:"Suck my dick" ,
-    totalTime: 36,
-    material:"React"
-  },];
+  const [popUp , usePopUp] = useState(false)
 
-  const isIt = true;
+  const info = [
+    {
+      day: "Friday",
+      course:"SWE" ,
+      totalTime: 36,
+      material:"React"
+    } 
+    
+  ];
+
+  
 
   return (
     <>
 
     <NavBar/>
     <MyCard list = {info}/>
-    <AddCard isOpen={isIt}/>
+    <AddCard isOpen={popUp}/>
 
     </>
   );

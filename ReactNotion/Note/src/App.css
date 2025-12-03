@@ -169,13 +169,19 @@ input:focus{
 }
 
 .add{
-
   position: relative;
-  
   margin-top: 20px;
-
   color: #000000;
   border: 1px solid #fff;
   border-radius: 4px;
   background-color: #ffffff;
+}
+
+.add:hover{
+  background-color: #c4c2c2;
+}
+
+.add:active, .close:active{
+  background-color: #9a9999;
+  scale: 0.95;
 }
