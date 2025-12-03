@@ -4,13 +4,25 @@ import MyCard from './components/MyCard'
 import NavBar from './components/NavBar'
 
 function App() {
-
+  const info = [{
+    day: "Meow",
+    course:"SWE" ,
+    totalTime: 36,
+    material:"React"
+  },
+  {
+    day: "Meow",
+    course:"SWE" ,
+    totalTime: 36,
+    material:"React"
+  }];
 
   return (
     <>
 
     <NavBar/>
-    <MyCard/>
+    <MyCard list = {info}/>
+    
     
     </>
   )
