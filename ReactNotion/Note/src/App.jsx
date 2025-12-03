@@ -6,16 +6,15 @@ import AddCard from './components/AddCard';
 
 function App() {
 
-
   const info = [{
-    day: "Meow",
-    course:"SWE" ,
-    totalTime: 36,
-    material:"React"
+    day: "Thursday",
+    course:"Fucking Leena" ,
+    totalTime: "3 hr",
+    material:"Bed then chair"
   },
   {
-    day: "Meow",
-    course:"SWE" ,
+    day: "Friday",
+    course:"Suck my dick" ,
     totalTime: 36,
     material:"React"
   },];
@@ -27,12 +26,10 @@ function App() {
 
     <NavBar/>
     <MyCard list = {info}/>
-  
-    <AddCard isOpen={isIt} />
-    
-    
+    <AddCard isOpen={isIt}/>
+
     </>
-  )
+  );
 }
 
 export default App
