@@ -11,7 +11,12 @@ body{
   background-color: color-mix(in srgb, rgb(44, 5, 5) 50%, rgb(4, 4, 79) 50%);
   height: 100vh;
   font-family: 'Times New Roman', Times, serif;
+
 }
+
+
+ /* Card */
+
 .Container{
   display: flex ;
   flex-direction: row;
@@ -41,10 +46,16 @@ body{
  list-style: none;
 }
 
+
+ /* Nav bar */
+.nav-container{
+  display: flex;
+  width: 100%;
+  background-color: #fff;
+
+}
 .nav{
   display: flex;
-
-  flex-direction: row;
 
   margin: 30px;
   padding: 10px;
@@ -53,6 +64,7 @@ body{
   color: aliceblue;
   border: 1px solid #4C3BCF;
   background-color: #450473;
+
 
 }
 
@@ -105,4 +117,28 @@ input:focus{
 
   color: aliceblue;
 
+}
+
+
+/* Pop up addition */
+
+.popUp-overlay{
+  position: fixed;
+  inset: 0; 
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  
+  background-color:  rgba(0, 0, 0, 0.5);
+  z-index: 999;
+
+}
+
+.addNote{
+  display: flex;
+  background-color: #fff;
+  width: 300px;
+  height: 350px;
 }
