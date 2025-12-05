@@ -3,16 +3,14 @@ import { useState } from "react";
 
 
 function AddCard(props){
-
-    const [popUp, setPopUp] = useState(props.isOpen)
     
 
     return(<>
     {
-            popUp &&
+            props.isOpen &&
             <div className="popUp-overlay">
                 <div className="addNote">
-                    <button className="close">  X </button>
+                    <button className="close" onClick={()=> props.isOpen ? !props.isOpen:  props.isOpen }>  X </button>
                     <label htmlFor=""> Day :  </label>
                     <select name="Day" id="">
                         <option value="Sunday"> Sunday</option>
