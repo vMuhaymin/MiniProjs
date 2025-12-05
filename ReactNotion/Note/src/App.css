@@ -120,6 +120,15 @@ input:focus{
 }
 
 
+.Options button:hover {
+  cursor: pointer;
+}
+
+.Options button:active {
+
+  scale: 0.96;
+}
+
 /* Pop up addition */
 
 .popUp-overlay{

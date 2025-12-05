@@ -6,7 +6,7 @@ import AddCard from './components/AddCard';
 
 function App() {
 
-  const [popUp , usePopUp] = useState(false)
+
 
   const info = [
     {
@@ -25,7 +25,7 @@ function App() {
 
     <NavBar/>
     <MyCard list = {info}/>
-    <AddCard isOpen={popUp}/>
+
 
     </>
   );
