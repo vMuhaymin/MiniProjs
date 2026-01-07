@@ -4,6 +4,7 @@ function AddCard({isOpen , onClose ,addedNote }){
     if (!isOpen) return null;
 
     const [ addedInfo , setNewInfo ]= useState({
+        id: 0 ,
         day: "" ,
         course: "" ,
         totalTime:"" ,
@@ -19,6 +20,10 @@ function AddCard({isOpen , onClose ,addedNote }){
             <div className="popUp-overlay">
                 <div className="addNote">
                     <button className="close" onClick={onClose}>  X </button>
+
+                    <label htmlFor="">ID: </label>
+                    <input type="number"  placeholder="0" name="id" value= {addedInfo.id} onChange={handleChange} required/>
+
                     <label htmlFor=""> Day :  </label>
                     <select name="day" value = {addedInfo.day} onChange={handleChange} required>
                         <option value="Sunday"> Sunday</option>

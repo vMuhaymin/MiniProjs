@@ -1,12 +1,9 @@
 import AddCard from './AddCard';
 import { useState } from "react";
 
-
 function NavBar({onAdd}){
     
     const [popUp , setPopUp] = useState(false)
- 
-
     function openNote(){
         setPopUp(true);
     }
