@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function AddCard({isOpen , onClose}){
+function AddCard({isOpen , onClose ,addedNote }){
     if (!isOpen) return null;
 
     const [ addedInfo , setNewInfo ]= useState({
@@ -39,10 +39,10 @@ function AddCard({isOpen , onClose}){
                     <label htmlFor="">Material: </label>
                     <input type="text" placeholder="Ch1" name= "material" value={addedInfo.material} onChange={handleChange} required/>
 
-                    <button className="add"> ✓ </button>
+                    <button className="add" onClick={() => addedNote(addedInfo) } > ✓ </button>
                 </div>
             </div>
-
+        
     }
         
     </>);

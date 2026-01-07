@@ -2,9 +2,10 @@ import AddCard from './AddCard';
 import { useState } from "react";
 
 
-function NavBar(){
+function NavBar({onAdd}){
     
     const [popUp , setPopUp] = useState(false)
+ 
 
     function openNote(){
         setPopUp(true);
@@ -12,6 +13,10 @@ function NavBar(){
 
     function closeNote(){
         setPopUp(false);
+    }
+
+    function newAddedNote(data){
+        onAdd(data)
     }
 
     return(<>
@@ -23,7 +28,7 @@ function NavBar(){
     
     </div>
     
-    <AddCard  isOpen={popUp} onClose={closeNote}  />
+    <AddCard  isOpen={popUp} onClose={closeNote} addedNote = {newAddedNote} />
 
     </>);
 }

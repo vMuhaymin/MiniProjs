@@ -22,12 +22,15 @@ function App() {
     } 
   ]);
 
-
+  function addNote( newNote ){
+    setInfo([...info, newNote])
+    
+  }
 
   return (
     <>
 
-    <NavBar/>
+    <NavBar onAdd={addNote} />
     <MyCard list = {info} />
 
     </>
