@@ -35,7 +35,7 @@ function AddCard({isOpen , onClose}){
             </div>
 
     }
-
+        
     </>);
 }
 

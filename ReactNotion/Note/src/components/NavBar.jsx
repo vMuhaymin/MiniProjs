@@ -13,6 +13,9 @@ function NavBar(){
         setPopUp(false);
     }
 
+
+    
+
     return(<>
     <div className="nav">
             <div className="logo"><h2>Logo </h2> </div>
@@ -20,7 +23,7 @@ function NavBar(){
              <div className="button"> </div>
             <div className="Options"> <button onClick={openNote} >Add Note</button> </div>
     </div>
-    <AddCard  isOpen={popUp} onClose={closeNote} />
+    <AddCard  isOpen={popUp} onClose={closeNote}  />
 
     </>);
 }

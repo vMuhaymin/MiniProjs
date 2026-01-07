@@ -28,6 +28,12 @@ function MyCard(props){
         <div className="Container">
             {list}
         </div>
+
+
+
+
+
+        
     </>);
 }
 

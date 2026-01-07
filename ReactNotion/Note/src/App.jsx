@@ -6,9 +6,7 @@ import AddCard from './components/AddCard';
 
 function App() {
 
-
-
-  const info = [
+  const [ info , setInfo ] = useState([
     {
       day: "Friday",
       course:"SWE" ,
@@ -21,16 +19,17 @@ function App() {
       totalTime: 2,
       material:"DB"
     } 
-    
-  ];
+  ]);
 
-  
+  function addNote(){
+    
+  }
 
   return (
     <>
 
     <NavBar/>
-    <MyCard list = {info}/>
+    <MyCard list = {info} />
 
     </>
   );
