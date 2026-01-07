@@ -4,12 +4,12 @@ import { useState } from "react";
 
 function AddCard(props){
 
-    const [popUp, setPopUp] = useState(props.isOpen)
+    
     
 
     return(<>
     {
-            popUp &&
+            props.isOpen &&
             <div className="popUp-overlay">
                 <div className="addNote">
                     <button className="close">  X </button>
