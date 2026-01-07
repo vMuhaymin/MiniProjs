@@ -12,8 +12,9 @@ function App() {
       course:"SWE" ,
       totalTime: 36,
       material:"React"
-    } ,
-        {
+    },
+
+    {
       day: "Wednesday",
       course:"ICS 321 " ,
       totalTime: 2,
@@ -21,9 +22,7 @@ function App() {
     } 
   ]);
 
-  function addNote(){
-    
-  }
+
 
   return (
     <>
