@@ -1,9 +1,10 @@
 import { useState } from "react";
 
-function EditCard({isOpen , onClose , onEdit, id , data }){
-    if (!isOpen) return null;
+function EditCard({isOpen , onClose , onEdit, data }){
+    if (!isOpen) return null; //Because of this, the edit on next time resets the initial state every time 
 
     const [ newInfo , setNewInfo ]= useState({
+        id: data.id,
         day: data.day ,
         course: data.course  ,
         totalTime: data.totalTime ,
@@ -41,7 +42,7 @@ function EditCard({isOpen , onClose , onEdit, id , data }){
                     <label htmlFor="">Material: </label>
                     <input type="text" placeholder="Ch1" name= "material" value={newInfo.material} onChange={handleChange} required/>
 
-                    <button className="add" onClick={() => onEdit(newInfo, id) } > ✓ </button>
+                    <button className="add" onClick={() => onEdit(newInfo) } > ✓ </button>
                 </div>
             </div>
         

@@ -27,10 +27,10 @@ function App() {
     setInfo([...info, newNote])
   }
 
-  function onEdit(adjusted, id){
+  function onEdit(adjusted){
     info.forEach( (e)=> {
-      if (e.id === id ){
-        e.id === id  && console.log(`Correct Edit! The id is ${e.id } `) 
+      if (e.id === adjusted.id ){
+        e.id === adjusted.id  && console.log(`Correct Edit! The id is ${e.id } `) 
       }
       return ;
     })

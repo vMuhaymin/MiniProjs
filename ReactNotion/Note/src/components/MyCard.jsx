@@ -3,14 +3,11 @@ import EditCard from './EditCard';
 
 function MyCard(props){
 
-    
     const [popUp , setPopUp] = useState(false)
-    const [id , setId] = useState(0)
-    const [e , setE] = useState("")
+    const [e , setE] = useState({})
 
-    function openNote(id , e ){
+    function openNote( e ){
         setPopUp(true);
-        setId(id)
         setE(e)
 
     }
@@ -19,10 +16,9 @@ function MyCard(props){
         setPopUp(false);
     }
 
-    function onEdit(data, id){
-        props.onEdit(data, id)
+    function onEdit(data){
+        props.onEdit(data)
     }
-
 
     const toList = props.list        
     const list = toList.map((e) => { 
@@ -35,7 +31,7 @@ function MyCard(props){
                         <li>Course</li>
                         <li>Total Time</li>
                         <li> Material </li>
-                        <li> <button onClick={()=> openNote(e.id, e)}>⚙️ </button> <button onClick={()=> props.onDelete(e.id) } > 🗑️</button> </li>
+                        <li> <button onClick={()=> openNote(e)}>⚙️ </button> <button onClick={()=> props.onDelete(e.id) } > 🗑️</button> </li>
                     </ul>
                     <ul className="main-Info-data">
                         <li> {e.id} </li>
@@ -54,7 +50,7 @@ function MyCard(props){
         </div>
     
     {/* Added note here is the new adjusted data. if you went to NavBar component, this will add a new card not adjust the current card */}
-    <EditCard isOpen={popUp} onClose={closeNote} onEdit = {onEdit}  id ={id}  data = {e} />
+    <EditCard isOpen={popUp} onClose={closeNote} onEdit = {onEdit} data = {e} />
 
     </>);
 }
