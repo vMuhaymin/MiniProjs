@@ -27,9 +27,19 @@ function App() {
     setInfo([...info, newNote])
   }
 
-  function onEdit(id){
+  function onEdit(adjusted, id){
     info.forEach( (e)=> {
-      e.id === id ? console.log("Correct Edit!") :  console.log("Error")
+      if (e.id === id ){
+        e.id === id  && console.log(`Correct Edit! The id is ${e.id } `) 
+      }
+      return ;
+    })
+  }
+
+  
+  function onDelete(id){
+    info.forEach( (e)=> {
+      e.id === id && console.log(`Correct Delete! The id is ${e.id} `) 
     })
   }
 
@@ -37,7 +47,7 @@ function App() {
     <>
 
     <NavBar onAdd={addNote} />
-    <MyCard list = {info} onEdit= {onEdit} />
+    <MyCard list = {info} onEdit= {onEdit}/>
 
     </>
   );
