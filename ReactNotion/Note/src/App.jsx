@@ -28,12 +28,9 @@ function App() {
   }
 
   function onEdit(adjusted){
-    info.forEach( (e)=> {
-      if (e.id === adjusted.id ){
-        e.id === adjusted.id  && console.log(`Correct Edit! The id is ${e.id } `) 
-      }
-      return ;
-    })
+    const oldInfo =  info.filter( (e) => e.id !==adjusted.id )
+    setInfo( [...oldInfo , adjusted]);
+
   }
 
   
