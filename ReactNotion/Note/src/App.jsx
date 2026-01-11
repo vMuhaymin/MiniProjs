@@ -34,17 +34,15 @@ function App() {
   }
 
   
-  function onDelete(id){
-    info.forEach( (e)=> {
-      e.id === id && console.log(`Correct Delete! The id is ${e.id} `) 
-    })
+  function onDelete(deleted){
+    setInfo( prev => prev.filter((e)=> e.id !== deleted.id));
   }
 
   return (
     <>
 
     <NavBar onAdd={addNote} />
-    <MyCard list = {info} onEdit= {onEdit}/>
+    <MyCard list = {info} onEdit= {onEdit} onDelete={onDelete}/>
 
     </>
   );

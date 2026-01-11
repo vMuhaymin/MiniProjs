@@ -20,6 +20,7 @@ function MyCard(props){
         props.onEdit(data)
     }
 
+
     const toList = props.list        
     const list = toList.map((e) => { 
         return ( 
@@ -31,7 +32,7 @@ function MyCard(props){
                         <li>Course</li>
                         <li>Total Time</li>
                         <li> Material </li>
-                        <li> <button onClick={()=> openNote(e)}>⚙️ </button> <button onClick={()=> props.onDelete(e.id) } > 🗑️</button> </li>
+                        <li> <button onClick={()=> openNote(e)}>⚙️ </button> <button onClick={()=> props.onDelete(e) } > 🗑️</button> </li>
                     </ul>
                     <ul className="main-Info-data">
                         <li> {e.id} </li>
