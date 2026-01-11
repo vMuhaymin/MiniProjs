@@ -11,7 +11,7 @@ function App() {
       id: 1,
       day: "Friday",
       course:"SWE" ,
-      totalTime: 36,
+      totalTime: 6,
       material:"React"
     },
     {
@@ -20,6 +20,13 @@ function App() {
       course:"ICS 321 " ,
       totalTime: 2,
       material:"DB"
+    } ,
+    {
+      id: 3,
+      day: "Sunday",
+      course:"ICS 343 " ,
+      totalTime: 1,
+      material:"TCP"
     } 
   ]);
 
