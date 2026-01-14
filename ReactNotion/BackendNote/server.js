@@ -9,7 +9,7 @@ app.use(express.json());
 app.post('/' , (req, res)=>{
     const courseInfo = req.body.info 
 
-    if( courseInfo[0].course === 'SWE 363'){
+    if( courseInfo[0].course){
         console.log(`The subject is ${courseInfo[0].course} and its total time ${courseInfo[0].totalTime }` )
         res.status(200).send("Ok")
     }
