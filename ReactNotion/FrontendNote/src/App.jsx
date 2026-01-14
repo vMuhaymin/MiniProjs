@@ -10,7 +10,7 @@ function App() {
     {
       id: 1,
       day: "Friday",
-      course:"SWE" ,
+      course:"SWE 363" ,
       totalTime: 6,
       material:"React"
     },
@@ -45,11 +45,22 @@ function App() {
     setInfo( prev => prev.filter((e)=> e.id !== deleted.id));
   }
 
+  async function sendData(info) {
+    const response = await fetch(`http://localhost:33551/`,{
+      method: "POST",
+      headers: {"Content-Type" : "application/json"}, 
+      body: JSON.stringify({info})
+      });
+    const result = await response.json();
+    console.log(result) 
+  }
+
   return (
     <>
 
     <NavBar onAdd={addNote} />
     <MyCard list = {info} onEdit= {onEdit} onDelete={onDelete}/>
+    <button onClick={()=> sendData(info)} > Send data  </button>
 
     </>
   );

@@ -1,10 +1,26 @@
 const express = require('express')
 const app = express();
 
-app.get('/' , (req, res)=>{
-    res.send("Hola from the server side!!")
+app.use(express.urlencoded({extended: true}))
+app.use(express.json());
+
+app.post('/' , (req, res)=>{
+    const courseInfo = req.body.info 
+
+    if( courseInfo.course === 'SWE 363'){
+        console.log(`The subject is ${courseInfo.course} and its total time ${courseInfo.totalTime }` )
+        res.status(200).send("Ok")
+    }
+    else{
+         console.log("Request is failed")
+         res.status(400).send("Request is failed")
+    }
+
 });
 
-app.listen(5640)
+
+
+PORT = 33551
+app.listen(PORT)
 console.log("Server has worked successfully!! Check the below link")
-console.log("http://localhost:5640/")
+console.log(`http://localhost:${PORT}/`)
