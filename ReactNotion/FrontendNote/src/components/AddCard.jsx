@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function AddCard({isOpen , onClose ,addedNote }){
     if (!isOpen) return null;
-    const URL = "";
+    const URL = "http://localhost:33551/";
 
     const [ addedInfo , setNewInfo ]= useState({
         id: 0 ,
@@ -16,17 +16,19 @@ function AddCard({isOpen , onClose ,addedNote }){
         setNewInfo({ ...addedInfo , [e.target.name] :e.target.value });
     }
 
-    async function uploadData(e){
+    async function uploadData(data){
         const response = await fetch(URL, {
             method: "POST",
-            header: {"Content-Type" : "application/json"},
-            body: JSON.stringify({e})
+            headers:{"Content-Type" : "application/json"},
+            body: JSON.stringify({data})
         });
 
-        const result = await response.json();
-        console.log("The sent data is : " + result.course);
+        const result = await response.json(); 
+        console.log(result);
     }
 
+
+    
     return(<>
     {
             <div className="popUp-overlay">
@@ -56,7 +58,7 @@ function AddCard({isOpen , onClose ,addedNote }){
                     <label htmlFor="">Material: </label>
                     <input type="text" placeholder="Ch1" name= "material" value={addedInfo.material} onChange={handleChange} required/>
 
-                    <button className="add" onClick={() => addedNote(addedInfo) } > ✓ </button>
+                    <button className="add" onClick={() =>{ addedNote(addedInfo); uploadData(addedInfo); }} > ✓ </button>
                 </div>
             </div>
         

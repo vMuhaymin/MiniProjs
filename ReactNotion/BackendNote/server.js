@@ -7,10 +7,10 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.json());
 
 app.post('/' , (req, res)=>{
-    const courseInfo = req.body.info 
+    const courseInfo = req.body.data 
 
-    if( courseInfo[0].course){
-        console.log(`The subject is ${courseInfo[0].course} and its total time ${courseInfo[0].totalTime }` )
+    if( courseInfo.course){
+        console.log(`The subject is ${courseInfo.course} and its total time ${courseInfo.totalTime }` )
         res.status(200).send("Ok")
     }
     else{
