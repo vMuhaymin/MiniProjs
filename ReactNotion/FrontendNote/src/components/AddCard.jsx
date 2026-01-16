@@ -2,6 +2,7 @@ import { useState } from "react";
 
 function AddCard({isOpen , onClose ,addedNote }){
     if (!isOpen) return null;
+    const URL = "";
 
     const [ addedInfo , setNewInfo ]= useState({
         id: 0 ,
@@ -13,6 +14,17 @@ function AddCard({isOpen , onClose ,addedNote }){
 
     function handleChange(e){
         setNewInfo({ ...addedInfo , [e.target.name] :e.target.value });
+    }
+
+    async function uploadData(e){
+        const response = await fetch(URL, {
+            method: "POST",
+            header: {"Content-Type" : "application/json"},
+            body: JSON.stringify({e})
+        });
+
+        const result = await response.json();
+        console.log("The sent data is : " + result.course);
     }
 
     return(<>
