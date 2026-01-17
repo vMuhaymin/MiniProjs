@@ -22,24 +22,24 @@ app.post('/api/addNote' , (req, res)=>{
 
 });
 
-app.get('/api/retriveInfos', async (req,  res)=>{
+app.get('/api/retriveInfos', (req,  res)=>{
     const data = [
   {
-      id: 1,
+      id: Math.floor(Math.random()*100),
       day: "Sunday",
       course:"ICS 381" ,
       totalTime: 1,
       material:"AI states"
     },
     {
-      id: 2,
+      id: Math.floor(Math.random()*100),
       day: "Wednesday",
       course:"ICS 353" ,
       totalTime: 2,
       material:"Merging"
     } ,
     {
-      id: 3,
+      id: Math.floor(Math.random()*100),
       day: "Wednesday",
       course:"ICS 381 " ,
       totalTime: 2,
@@ -47,8 +47,7 @@ app.get('/api/retriveInfos', async (req,  res)=>{
     }
     ];
     res.status(200).json(data);
-    console.log(`The data has been sent successfully`)
-
+    console.log(`The data has been sent successfully`);
 });
 
 
