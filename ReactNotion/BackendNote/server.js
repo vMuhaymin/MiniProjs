@@ -6,7 +6,9 @@ app.use(cors());
 app.use(express.urlencoded({extended: true}))
 app.use(express.json());
 
-app.post('/' , (req, res)=>{
+app.post('/api/addNote' , (req, res)=>{
+
+    
     const courseInfo = req.body.data 
 
     if( courseInfo.course){
@@ -20,6 +22,34 @@ app.post('/' , (req, res)=>{
 
 });
 
+app.get('/api/retriveInfos', async (req,  res)=>{
+    const data = [
+  {
+      id: 1,
+      day: "Sunday",
+      course:"ICS 381" ,
+      totalTime: 1,
+      material:"AI states"
+    },
+    {
+      id: 2,
+      day: "Wednesday",
+      course:"ICS 353" ,
+      totalTime: 2,
+      material:"Merging"
+    } ,
+    {
+      id: 3,
+      day: "Wednesday",
+      course:"ICS 381 " ,
+      totalTime: 2,
+    material:"Agents"
+    }
+    ];
+    res.status(200).json(data);
+    console.log(`The data has been sent successfully`)
+
+});
 
 
 PORT = 33551

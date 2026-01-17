@@ -3,32 +3,25 @@ import './App.css'
 import MyCard from './components/MyCard'
 import NavBar from './components/NavBar'
 import AddCard from './components/AddCard';
+import { useEffect } from 'react';
 
 function App() {
 
-  const [ info , setInfo ] = useState([
-    {
-      id: 1,
-      day: "Friday",
-      course:"SWE 363" ,
-      totalTime: 6,
-      material:"React"
-    },
-    {
-      id: 2,
-      day: "Wednesday",
-      course:"ICS 321 " ,
-      totalTime: 2,
-      material:"DB"
-    } ,
-    {
-      id: 3,
-      day: "Sunday",
-      course:"ICS 343 " ,
-      totalTime: 1,
-      material:"TCP"
-    } 
-  ]);
+
+  const [ info , setInfo ] = useState([]);
+
+  useEffect(()=>{
+    //Upload the URL here 
+    const URL = 'http://localhost:33551/api/retriveInfos';
+
+    fetch(URL)
+    .then(res => res.json())
+    .then(data=> setInfo(data))
+    .catch( err => console.error(err))
+
+  } , []);
+
+
 
   function addNote( newNote ){
     setInfo([...info, newNote])

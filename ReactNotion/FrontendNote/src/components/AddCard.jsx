@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function AddCard({isOpen , onClose ,addedNote }){
     if (!isOpen) return null;
-    const URL = "http://localhost:33551/";
+    const URL = "http://localhost:33551/api/addNote";
 
     const [ addedInfo , setNewInfo ]= useState({
         id: 0 ,
