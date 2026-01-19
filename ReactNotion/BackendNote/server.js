@@ -1,7 +1,21 @@
 const express = require('express')
 const cors = require("cors");
 const app = express();
+
+const mongoose = require("mongoose")
+const createNote = require('./Components/mangoSchema.js')
 require("dotenv").config();
+
+// mongoose
+//   .connect(process.env.MANGO)
+//   .then(() => {
+//     console.log("Mango is UP !!");
+//   })
+//   .catch(err => {
+//     console.error("Mongo connection failed:", err);
+//   });
+// console.log("MANGO =", process.env.MANGO);
+
 
 app.use(cors());
 app.use(express.urlencoded({extended: true}))
@@ -53,6 +67,8 @@ app.get('/api/retriveInfos', (req,  res)=>{
 
 
 const PORT = process.env.PORT || 3000
+
 app.listen(PORT)
 console.log("Server has worked successfully!! Check the below link")
 console.log(`http://localhost:${PORT}/`)
+
