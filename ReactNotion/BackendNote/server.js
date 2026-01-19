@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require("cors");
 const app = express();
+require("dotenv").config();
 
 app.use(cors());
 app.use(express.urlencoded({extended: true}))
@@ -51,7 +52,7 @@ app.get('/api/retriveInfos', (req,  res)=>{
 });
 
 
-PORT = 33551
+const PORT = process.env.PORT || 3000
 app.listen(PORT)
 console.log("Server has worked successfully!! Check the below link")
 console.log(`http://localhost:${PORT}/`)
