@@ -1,5 +1,6 @@
-const mongoose = require("mongoose")
+// All we need here is to initialise the schema only
 
+const mongoose = require("mongoose")
 const noteSchema = new mongoose.Schema({
     day : String,
     course: String,
@@ -8,11 +9,4 @@ const noteSchema = new mongoose.Schema({
 }); 
 
 const Note = mongoose.model("Note", noteSchema)
-
-async function createNote(day, course, totalTime, material){
-    const document = Note.create({day,course, totalTime , material})
-    return document;
-}
-
-
-module.exports = createNote;
+module.exports = Note;

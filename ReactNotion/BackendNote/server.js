@@ -6,24 +6,26 @@ const mongoose = require("mongoose")
 const createNote = require('./Components/mangoSchema.js')
 require("dotenv").config();
 
-// mongoose
-//   .connect(process.env.MANGO)
-//   .then(() => {
-//     console.log("Mango is UP !!");
-//   })
-//   .catch(err => {
-//     console.error("Mongo connection failed:", err);
-//   });
-// console.log("MANGO =", process.env.MANGO);
+async function startServer() {
+  const URI = process.env.MANGO
+  try{
+    await mongoose.connect(URI)
+    console.log(`The connection is Up for mongoose✅`)
+  }
+  catch(e){
+    console.error(e)
+  }
+}
 
+startServer().catch(console.error);
 
+// Important for APIs communications
 app.use(cors());
 app.use(express.urlencoded({extended: true}))
 app.use(express.json());
 
+//For testing only
 app.post('/api/addNote' , (req, res)=>{
-
-    
     const courseInfo = req.body.data 
 
     if( courseInfo.course){
@@ -69,6 +71,6 @@ app.get('/api/retriveInfos', (req,  res)=>{
 const PORT = process.env.PORT || 3000
 
 app.listen(PORT)
-console.log("Server has worked successfully!! Check the below link")
+console.log("The server is up ✅, Check the below link")
 console.log(`http://localhost:${PORT}/`)
 
