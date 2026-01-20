@@ -2,13 +2,13 @@ import { useState } from "react";
 
 function AddCard({isOpen , onClose ,addedNote }){
     if (!isOpen) return null;
-    const URL = "http://localhost:33551/api/addNote";
+    const URL = "http://localhost:35000/api/addNote";
 
     const [ addedInfo , setNewInfo ]= useState({
         id: 0 ,
         day: "" ,
         course: "" ,
-        totalTime:"" ,
+        totalTime:0 ,
         material: "" 
     })
 

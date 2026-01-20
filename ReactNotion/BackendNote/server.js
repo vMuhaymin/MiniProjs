@@ -24,12 +24,31 @@ app.use(cors());
 app.use(express.urlencoded({extended: true}))
 app.use(express.json());
 
+//Adding a new note
+app.get('/mongo/delete', async (req, res)=>{
+  const doc = await createNote.create({
+    day : "Saturday",
+    course: "ICS 381",
+    totalTime: "2",
+    material: "AIs" 
+  })
+  
+  console.log(doc)
+
+});
+
 //For testing only
-app.post('/api/addNote' , (req, res)=>{
+app.post('/api/addNote' , async (req, res)=>{
     const courseInfo = req.body.data 
 
     if( courseInfo.course){
-        console.log(`The subject is ${courseInfo.course} and its total time ${courseInfo.totalTime }` )
+        const doc = await createNote.create({
+              day : courseInfo.day,
+              course: courseInfo.course,
+              totalTime: courseInfo.totalTime,
+              material: courseInfo.material 
+        })
+        console.log(doc)
         res.status(200).send("Ok")
     }
     else{
@@ -69,7 +88,6 @@ app.get('/api/retriveInfos', (req,  res)=>{
 
 
 const PORT = process.env.PORT || 3000
-
 app.listen(PORT)
 console.log("The server is up ✅, Check the below link")
 console.log(`http://localhost:${PORT}/`)
