@@ -12,7 +12,7 @@ function App() {
 
   useEffect(()=>{
     //Upload the URL here 
-    const URL = 'http://localhost:33551/api/retriveInfos';
+    const URL = 'http://localhost:35000/api/retriveInfos';
 
     fetch(URL)
     .then(res => res.json())
