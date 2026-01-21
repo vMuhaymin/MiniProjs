@@ -5,7 +5,7 @@ function AddCard({isOpen , onClose ,addedNote }){
     const URL = "http://localhost:35000/api/addNote";
 
     const [ addedInfo , setNewInfo ]= useState({
-        id: 0 ,
+
         day: "" ,
         course: "" ,
         totalTime:0 ,
@@ -34,9 +34,6 @@ function AddCard({isOpen , onClose ,addedNote }){
             <div className="popUp-overlay">
                 <div className="addNote">
                     <button className="close" onClick={onClose}>  X </button>
-
-                    <label htmlFor="">ID: </label>
-                    <input type="number"  placeholder="0" name="id" value= {addedInfo.id} onChange={handleChange} required/>
 
                     <label htmlFor=""> Day :  </label>
                     <select name="day" value = {addedInfo.day} onChange={handleChange} required>

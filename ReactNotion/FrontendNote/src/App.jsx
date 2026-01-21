@@ -21,8 +21,6 @@ function App() {
 
   } , []);
 
-
-
   function addNote( newNote ){
     setInfo([...info, newNote])
   }
@@ -33,8 +31,21 @@ function App() {
 
   }
 
+  async function helperToDelete(data){
+    
+    const URL = "http://localhost:35000/mongo/delete"
+    const response = await fetch(URL, {
+      method: "POST",
+      headers:{"Content-Type": "application/json"},
+      body: JSON.stringify({data}),
+    })
+    const result = await response.json();
+    console.log(result);
+  }
+
   function onDelete(deleted){
-    setInfo( prev => prev.filter((e)=> e.id !== deleted.id));
+    setInfo( prev => prev.filter((e)=> e._id !== deleted._id));
+    helperToDelete(deleted);
   }
 
   return (

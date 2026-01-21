@@ -25,23 +25,26 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.json());
 
 //Adding a new note
-app.get('/mongo/delete', async (req, res)=>{
-  const doc = await createNote.create({
-    day : "Saturday",
-    course: "ICS 381",
-    totalTime: "2",
-    material: "AIs" 
-  })
+app.post('/mongo/delete', async (req, res)=>{
   
-  console.log(doc)
-
+  const id = req.body.data._id
+  const doc = await createNote.deleteOne({_id : id});
+  if(id){
+    console.log(`The item with this id: ${id} will be deleted with this info: ${doc}`)
+    res.status(200).send("Ok")
+  }
+  else{
+    console.log("No id recieved but the root API is 🆙")
+    res.status(400).send("Request is failed")
+  }
+  
 });
 
 //For testing only
 app.post('/api/addNote' , async (req, res)=>{
     const courseInfo = req.body.data 
 
-    if( courseInfo.course){
+    if(courseInfo){
         const doc = await createNote.create({
               day : courseInfo.day,
               course: courseInfo.course,

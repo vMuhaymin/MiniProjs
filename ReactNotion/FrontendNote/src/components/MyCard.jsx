@@ -24,10 +24,10 @@ function MyCard(props){
     const toList = props.list        
     const list = toList.map((e) => { 
         return ( 
-                <div className="card-container" key={e.id}>
+                <div className="card-container" key={e._id}>
                     <ul className="main-Info-data"> 
                         {/* Require A fix, its table data <td> not <li>  */}
-                        <li>ID</li>
+                        {/* <li>ID</li> */}
                         <li>Day</li>
                         <li>Course</li>
                         <li>Total Time</li>
@@ -35,7 +35,7 @@ function MyCard(props){
                         <li> <button onClick={()=> openNote(e)}>⚙️ </button> <button onClick={()=> props.onDelete(e) } > 🗑️</button> </li>
                     </ul>
                     <ul className="main-Info-data">
-                        <li> {e.id} </li>
+                        {/* <li> {e._id} </li> */}
                         <li> {e.day} </li>
                         <li> {e.course} </li>
                         <li> {e.totalTime} </li>
