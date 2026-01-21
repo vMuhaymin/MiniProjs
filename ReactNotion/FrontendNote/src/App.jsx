@@ -22,31 +22,37 @@ function App() {
   } , []);
 
   function addNote( newNote ){
-    setInfo([...info, newNote])
+    setInfo(prev => [...prev, newNote])
   }
 
   function onEdit(adjusted){
-    const oldInfo =  info.filter( (e) => e.id !==adjusted.id )
     setInfo( [...oldInfo , adjusted]);
 
   }
 
+  function onDelete(deleted){
+    setInfo( prev => prev.filter((e)=> e._id !== deleted._id));
+    helperToDelete(deleted).catch((err)=>{
+      console.log(`faild to send due to this err: ${err}`)
+      setInfo( prev => [...prev, deleted] )
+    });
+  }
+
   async function helperToDelete(data){
-    
+
     const URL = "http://localhost:35000/mongo/delete"
     const response = await fetch(URL, {
       method: "POST",
       headers:{"Content-Type": "application/json"},
-      body: JSON.stringify({data}),
+      body: JSON.stringify({id: data._id}),
     })
-    const result = await response.json();
-    console.log(result);
+    if(!response.ok){
+      throw new Error(`HTTP ${response.status}`)
+    }
+    return response.json();
   }
 
-  function onDelete(deleted){
-    setInfo( prev => prev.filter((e)=> e._id !== deleted._id));
-    helperToDelete(deleted);
-  }
+
 
   return (
     <>

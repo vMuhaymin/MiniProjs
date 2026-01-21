@@ -26,8 +26,8 @@ app.use(express.json());
 
 //Adding a new note
 app.post('/mongo/delete', async (req, res)=>{
-  
-  const id = req.body.data._id
+
+  const id = req.body.id
   const doc = await createNote.deleteOne({_id : id});
   if(id){
     console.log(`The item with this id: ${id} will be deleted with this info: ${doc}`)
@@ -40,7 +40,6 @@ app.post('/mongo/delete', async (req, res)=>{
   
 });
 
-//For testing only
 app.post('/api/addNote' , async (req, res)=>{
     const courseInfo = req.body.data 
 
