@@ -5,8 +5,7 @@ function AddCard({isOpen , onClose ,addedNote }){
     const URL = "http://localhost:35000/api/addNote";
 
     const [ addedInfo , setNewInfo ]= useState({
-
-        day: "" ,
+        day: "Sunday" ,
         course: "" ,
         totalTime:0 ,
         material: "" 
@@ -36,8 +35,8 @@ function AddCard({isOpen , onClose ,addedNote }){
                     <button className="close" onClick={onClose}>  X </button>
 
                     <label htmlFor=""> Day :  </label>
-                    <select name="day" value = {addedInfo.day} onChange={handleChange} required>
-                        <option value="Sunday"> Sunday</option>
+                    <select name="day" value = {addedInfo.day} onChange={handleChange} required  >
+                        <option value="Sunday" > Sunday</option>
                         <option value="Monday"> Monday</option>
                         <option value="Tuesday">Tuesday</option>
                         <option value="Wednesday">Wednesday</option>

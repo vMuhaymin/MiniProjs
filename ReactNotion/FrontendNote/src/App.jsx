@@ -34,7 +34,7 @@ function App() {
     setInfo( prev => prev.filter((e)=> e._id !== deleted._id));
     helperToDelete(deleted).catch((err)=>{
       console.log(`faild to send due to this err: ${err}`)
-      setInfo( prev => [...prev, deleted] )
+      // setInfo( prev => [...prev, deleted] ) Will be added later, this simply to make the UI clean BUT NO NEED FOR IT
     });
   }
 
