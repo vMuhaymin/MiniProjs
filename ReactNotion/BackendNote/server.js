@@ -34,7 +34,7 @@ app.post('/mongo/delete', async (req, res)=>{
     res.status(200).send("Ok")
   }
   else{
-    console.log("No id recieved but the root API is 🆙")
+    console.log("No id received but the root API is 🆙")
     res.status(400).send("Request is failed")
   }
   
@@ -63,18 +63,15 @@ app.post('/mongo/adjust', async (req, res)=>{
       }
     );
 
-    console.log(`The item with this id: ${id} will be deleted with this info: ${doc}`)
+    console.log(`The item with this id: ${id} will be edited with this info: ${adjusted}`)
     res.status(200).send("Ok")
   }
   else{
-    console.log("No id recieved but the root API is 🆙")
+    console.log("No id received but the root API is 🆙")
     res.status(400).send("Request is failed")
   }
   
 });
-
-
-
 
 //Adding a new note
 app.post('/api/addNote' , async (req, res)=>{
@@ -97,7 +94,7 @@ app.post('/api/addNote' , async (req, res)=>{
 
 });
 
-app.get('/api/retriveInfos', async (req,  res)=>{
+app.get('/api/retrieveInfos', async (req,  res)=>{
     const data = await createNote.find()
     res.status(200).json(data);
     console.log(`The data has been sent successfully`);

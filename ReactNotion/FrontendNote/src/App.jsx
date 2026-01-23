@@ -13,7 +13,7 @@ function App() {
 
   useEffect(()=>{
     //Upload the URL here 
-    const URL = 'http://localhost:35000/api/retriveInfos';
+    const URL = 'http://localhost:35000/api/retrieveInfos';
 
     fetch(URL)
     .then(res => res.json())
@@ -46,7 +46,7 @@ function App() {
   function onDelete(deleted){
     setInfo( prev => prev.filter((e)=> e._id !== deleted._id));
     helperToDelete(deleted).catch((err)=>{
-      console.log(`faild to send due to this err: ${err}`)
+      console.log(`failed to send due to this err: ${err}`)
       // setInfo( prev => [...prev, deleted] ) Will be added later, this simply to make the UI clean BUT NO NEED FOR IT
     });
   }
