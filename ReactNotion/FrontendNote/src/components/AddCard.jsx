@@ -7,7 +7,7 @@ function AddCard({isOpen , onClose ,addedNote }){
     const [ addedInfo , setNewInfo ]= useState({
         day: "Sunday" ,
         course: "" ,
-        totalTime:0 ,
+        totalTime:"" ,
         material: "" 
     })
 
@@ -49,7 +49,7 @@ function AddCard({isOpen , onClose ,addedNote }){
                     <input type="text" placeholder="SWE363" name="course" value= {addedInfo.course} onChange={handleChange} required />
 
                     <label htmlFor="">Total Time: </label>
-                    <input type="number"  placeholder="0" name="totalTime" value= {addedInfo.totalTime} onChange={handleChange} required/>
+                    <input type="text"  placeholder="00:00" name="totalTime" value= {addedInfo.totalTime} onChange={handleChange} required/>
 
                     <label htmlFor="">Material: </label>
                     <input type="text" placeholder="Ch1" name= "material" value={addedInfo.material} onChange={handleChange} required/>

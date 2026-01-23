@@ -4,7 +4,7 @@ const mongoose = require("mongoose")
 const noteSchema = new mongoose.Schema({
     day : String,
     course: String,
-    totalTime: Number,
+    totalTime: String,
     material: String 
 }); 
 

@@ -24,7 +24,7 @@ app.use(cors());
 app.use(express.urlencoded({extended: true}))
 app.use(express.json());
 
-//Adding a new note
+//Deleting a note
 app.post('/mongo/delete', async (req, res)=>{
 
   const id = req.body.id
@@ -39,7 +39,33 @@ app.post('/mongo/delete', async (req, res)=>{
   }
   
 });
+//Adjusting a note
+app.post('/mongo/adjust', async (req, res)=>{
 
+  const id = req.body.data.id
+  const updatedDay = req.body.data.day
+  const updatedCourse = req.body.data.course
+  const updatedTotalTime = req.body.data.totalTime
+  const updatedMaterial = req.body.data.material
+  
+  const doc = await createNote.updateOne(
+    {_id : id},
+    {$set: {day: updatedDay , }},
+    {$set:{updatedCourse}}.$set
+
+  );
+  if(id){
+    console.log(`The item with this id: ${id} will be deleted with this info: ${doc}`)
+    res.status(200).send("Ok")
+  }
+  else{
+    console.log("No id recieved but the root API is 🆙")
+    res.status(400).send("Request is failed")
+  }
+  
+});
+
+//Adding a new note
 app.post('/api/addNote' , async (req, res)=>{
     const courseInfo = req.body.data 
 
