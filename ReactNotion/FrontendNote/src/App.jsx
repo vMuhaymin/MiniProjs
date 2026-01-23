@@ -9,6 +9,7 @@ function App() {
 
 
   const [ info , setInfo ] = useState([]);
+  const [refreshCounter, setRefreshCounter]=  useState(0);
 
   useEffect(()=>{
     //Upload the URL here 
@@ -19,15 +20,27 @@ function App() {
     .then(data=> setInfo(data))
     .catch( err => console.error(err))
 
-  } , []);
+  } , [refreshCounter]);
 
   function addNote( newNote ){
     setInfo(prev => [...prev, newNote])
   }
 
-  function onEdit(adjusted){
-    setInfo( [...oldInfo , adjusted]);
+  async function onEdit(adjusted){
+    const URL = 'http://localhost:35000/mongo/adjust';
+    console.log(`The data is: ${adjusted}`)
+    console.log(`The chapter is: ${adjusted.material}`)
 
+    const response = await fetch(URL, {
+      method: "POST",
+      headers: {"Content-Type":"Application/json"},
+      body: JSON.stringify({adjusted})
+    });
+    if(!response.ok){
+      console.log(`Error occur while editing: ${response.status}`)
+    }
+
+    setRefreshCounter(c => c +1)
   }
 
   function onDelete(deleted){

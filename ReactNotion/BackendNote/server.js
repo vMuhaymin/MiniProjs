@@ -39,22 +39,30 @@ app.post('/mongo/delete', async (req, res)=>{
   }
   
 });
+
+
 //Adjusting a note
 app.post('/mongo/adjust', async (req, res)=>{
 
-  const id = req.body.data.id
-  const updatedDay = req.body.data.day
-  const updatedCourse = req.body.data.course
-  const updatedTotalTime = req.body.data.totalTime
-  const updatedMaterial = req.body.data.material
-  
-  const doc = await createNote.updateOne(
-    {_id : id},
-    {$set: {day: updatedDay , }},
-    {$set:{updatedCourse}}.$set
+  const id = req.body.adjusted._id
 
-  );
   if(id){
+    const updatedDay = req.body.adjusted.day
+    const updatedCourse = req.body.adjusted.course
+    const updatedTotalTime = req.body.adjusted.totalTime
+    const updatedMaterial = req.body.adjusted.material
+    
+    const doc = await createNote.updateOne(
+      {_id : id},
+      {$set: {
+        day: updatedDay ,
+        course: updatedCourse ,
+        totalTime: updatedTotalTime,
+        material: updatedMaterial
+        }
+      }
+    );
+
     console.log(`The item with this id: ${id} will be deleted with this info: ${doc}`)
     res.status(200).send("Ok")
   }
@@ -64,6 +72,9 @@ app.post('/mongo/adjust', async (req, res)=>{
   }
   
 });
+
+
+
 
 //Adding a new note
 app.post('/api/addNote' , async (req, res)=>{

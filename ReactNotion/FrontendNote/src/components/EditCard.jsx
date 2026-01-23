@@ -4,7 +4,7 @@ function EditCard({isOpen , onClose , onEdit, data }){
     if (!isOpen) return null; //Because of this, the edit on next time resets the initial state every time 
 
     const [ newInfo , setNewInfo ]= useState({
-        id: data.id,
+        _id: data._id,
         day: data.day ,
         course: data.course  ,
         totalTime: data.totalTime ,
